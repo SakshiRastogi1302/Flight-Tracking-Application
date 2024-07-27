@@ -32,10 +32,10 @@
 .status{
     height: 10vh;
     margin-top: 2%;
-    margin-left: -9%;
+    margin-left: -12%;
     text-align: center;
     color: red;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Added CSS for horizontal line */
@@ -45,18 +45,20 @@
 
 /* Added CSS for location container */
 .location {
-
+    margin-top: 30px;
     display: flex;
     justify-content: space-evenly;
 }
 
 /* Added green color to Arrival Heading */
 .arrival{
+    font-size: 18px;
     color: green;
 }
 
 /* Added red color to Departure Heading */
 .departure{
+    font-size: 18px;
     color: red;
 }
 

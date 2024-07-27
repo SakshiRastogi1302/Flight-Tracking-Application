@@ -5,7 +5,7 @@ const ShowSearchResult = ({ flightData }) => {
   return (
     <div>
       {/* Created a container */}
-      <div className='searchBox'>
+      <div className='searchedFlightInfo'>
         {/* Added a heading to the search box */}
         <h1 className='checkFlightStatusHeading'>Searched Flight Status</h1>
         {/* Displaying the flight name and number */}

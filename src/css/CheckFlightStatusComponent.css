@@ -21,6 +21,21 @@
     margin-top: 2%;
 }
 
+.noFlight{
+    width: 50%;
+    height: 35vh;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: red;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
 /* Added CSS for heading */
 .heading {
     font-size: 30px;

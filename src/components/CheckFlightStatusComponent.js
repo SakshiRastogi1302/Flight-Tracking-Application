@@ -3,12 +3,14 @@ import '../css/CheckFlightStatusComponent.css'
 import searchIcon from '../images/search-icon.png'
 import ShowSearchResult from './ShowSearchResult';
 import { allInputFieldsSelected } from '../utils/helper';
+import { allFlightData } from '../utils/mockData';
 
 const CheckFlightStatusComponent = () => {
     const [airlineName, setAirlineName] = useState("");
     const [flightNo, setFlightNo] = useState("");
     const [date, setDate] = useState("mm/dd/yy");
     const [flightData, setFlightData] = useState(null);
+    const [allInputFieldsFilled, setAllInputFieldsFilled] = useState(false);
 
     useEffect(() => {
         resetAllInputValues();
@@ -52,15 +54,15 @@ const CheckFlightStatusComponent = () => {
      * This function set the flight data if and only if all the input fields are selected.
      */
     const findFlightDetails = () => {
-        const receivedAllInput = allInputFieldsSelected(airlineName, flightNo, date);
-        receivedAllInput === "success" ? setFlightData({
-            "airlineName": airlineName,
-            "flightNumber": flightNo,
-            "currentFlightStatus": "Delayed",
-            "arrivalLocation":"New Delhi",
-            "departureLocation":"Banglore",
-
-        }) : setFlightData(null);
+        setAllInputFieldsFilled(allInputFieldsSelected(airlineName, flightNo, date));
+        if(allInputFieldsFilled){
+            const matchedFlightInfo = allFlightData.filter((flightData) => {
+                const [departureDate, time] = flightData.actual_departure !==null ?flightData.actual_departure.split("T") : flightData?.scheduled_departure?.split("T");
+                return flightData.airline === airlineName && flightData.flight_id === flightNo && departureDate === date;
+            })
+            console.log("MFI",matchedFlightInfo);
+            setFlightData(matchedFlightInfo[0]);
+        }
     }
 
     return (
@@ -113,7 +115,7 @@ const CheckFlightStatusComponent = () => {
             {flightData ? (
                 <div className='searchResultBox'>
                     <ShowSearchResult flightData={flightData} />
-                </div>) : null}
+                </div>) : allInputFieldsFilled?<div className='noFlight'><h1>Sorry!! We cannot find any flight with the mentioned details.</h1></div> : null}
         </div>
     )
 }

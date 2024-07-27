@@ -1,0 +1,66 @@
+/* Added height for search container */
+.searchBox {
+    height: 20vh;
+}
+
+/* Added CSS for heading */
+.checkFlightStatusHeading {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+    color:rgb(9, 221, 9);
+}
+
+/* Added CSS for flight name and flight number div container */
+.flightNameAndNumber{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 4%;
+}
+
+/* Added height to the flightStatus div container */
+.flightStatus{
+    height: 5vh;
+}
+
+/* Added font-size styling for displaying airline name, flight number and flight status */
+.name, .flightNo, .status{
+    font-size: 18px;
+}
+
+/* Added CSS for displaying the status of flight */
+.status{
+    height: 10vh;
+    margin-top: 2%;
+    margin-left: -9%;
+    text-align: center;
+    color: red;
+    font-weight: 600;
+}
+
+/* Added CSS for horizontal line */
+.horizontalLine{
+    margin-bottom: 2%;
+}
+
+/* Added CSS for location container */
+.location {
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Added green color to Arrival Heading */
+.arrival{
+    color: green;
+}
+
+/* Added red color to Departure Heading */
+.departure{
+    color: red;
+}
+
+/* Centered the text displaying arrival and departure location */
+.arrivalLocation, .departureLocation{
+    text-align: center;
+}

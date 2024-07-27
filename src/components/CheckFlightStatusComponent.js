@@ -60,7 +60,6 @@ const CheckFlightStatusComponent = () => {
                 const [departureDate, time] = flightData.actual_departure !==null ?flightData.actual_departure.split("T") : flightData?.scheduled_departure?.split("T");
                 return flightData.airline === airlineName && flightData.flight_id === flightNo && departureDate === date;
             })
-            console.log("MFI",matchedFlightInfo);
             setFlightData(matchedFlightInfo[0]);
         }
     }

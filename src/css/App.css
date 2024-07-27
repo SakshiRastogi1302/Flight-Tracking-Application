@@ -1,0 +1,12 @@
+/* Eliminating all the space that the browser might have applied by default. */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* Setting the background color, height and width of the App Component */
+.app{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(155, 214, 240);
+}

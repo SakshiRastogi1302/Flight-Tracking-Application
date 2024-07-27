@@ -23,10 +23,10 @@ export const allInputFieldsSelected = (airlineName, flightNo, date) => {
                 alert("Departure Date Is Required");
             }
             else {
-                return "success";
+                return "true";
             }
         }
     }
 
-    return "failed";
+    return "false";
 }

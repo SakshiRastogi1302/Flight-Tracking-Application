@@ -12,6 +12,7 @@
     height: 100%;
     background-image: url('../images/background-image.png');
     background-size: cover;
+    margin-top: -3%;
 }
 
 /* CSS for heading and button container */
@@ -28,7 +29,7 @@
     font-size: 70px;
     display: flex;
     justify-content: center;
-    margin-top: 30%;
+    margin-top: 25%;
 }
 
 /* CSS for button */

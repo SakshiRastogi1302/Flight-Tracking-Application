@@ -24,7 +24,7 @@
 /* CSS for main heading */
 .mainHeading {
     background: -webkit-linear-gradient(rgb(30, 149, 208),black);
-    -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 70px;
     display: flex;

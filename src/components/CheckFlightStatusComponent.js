@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../css/CheckFlightStatusComponent.css'
 import searchIcon from '../images/search-icon.png'
 import ShowSearchResult from './ShowSearchResult';
-import { allInputFieldsSelected } from '../utils/helper';
-import { allFlightData } from '../utils/mockData';
+import { checkAllInputFieldsFilled } from '../utils/helper';
 
 const CheckFlightStatusComponent = () => {
     const [airlineName, setAirlineName] = useState("");
@@ -31,7 +30,7 @@ const CheckFlightStatusComponent = () => {
     const updateFlightNo = (e) => {
         setFlightNo(e.target.value);
     }
-    
+
     /**
      * This function is used to update the value of date state variable upon changing the input field value.
      * @param {*} e 
@@ -48,19 +47,43 @@ const CheckFlightStatusComponent = () => {
         setFlightNo("");
         setDate("mm/dd/yy");
         setFlightData(null);
+        setAllInputFieldsFilled(false);
     }
 
     /**
      * This function set the flight data if and only if all the input fields are selected.
      */
-    const findFlightDetails = () => {
-        setAllInputFieldsFilled(allInputFieldsSelected(airlineName, flightNo, date));
-        if(allInputFieldsFilled){
+    const findFlightDetails = async () => {
+        const allInputFieldsSelected = checkAllInputFieldsFilled(airlineName, flightNo, date);
+        setAllInputFieldsFilled(allInputFieldsSelected);
+        if (allInputFieldsSelected) {
+            const allFlightData = await (await fetch("http://localhost:8081/flight")).json();
             const matchedFlightInfo = allFlightData.filter((flightData) => {
-                const [departureDate, time] = flightData.actual_departure !==null ?flightData.actual_departure.split("T") : flightData?.scheduled_departure?.split("T");
+                const [departureDate, time] = flightData.actual_departure === "null" ? flightData.scheduled_departure.split("T") : flightData.actual_departure.split("T")
                 return flightData.airline === airlineName && flightData.flight_id === flightNo && departureDate === date;
             })
             setFlightData(matchedFlightInfo[0]);
+            if(matchedFlightInfo[0] !== undefined){
+                const email = JSON.parse(matchedFlightInfo[0].passengersList);
+                for(let val in email){
+                    const flightInfo = {
+                        email: email[val]["emailId"],
+                        
+                        subject: matchedFlightInfo[0].status === "On Time"? "Flight On time" : matchedFlightInfo[0].status === "Delayed" ? "Flight is delayed" : matchedFlightInfo[0].status === "Cancelled" ? "Flight has been cancelled" : matchedFlightInfo[0].status === "Departure Gate Is Changed" ? "New departure gate is " +matchedFlightInfo[0].changed_departure_gate :  "New arrival gate is "+ matchedFlightInfo[0].changed_arrival_gate,
+
+                        text: matchedFlightInfo[0].status === "On Time"? "Your flight " + matchedFlightInfo[0].flight_id +" is on time. Departure gate: " + matchedFlightInfo[0].departure_gate+"." : matchedFlightInfo[0].status === "Delayed" ? "Your flight " + matchedFlightInfo[0].flight_id +" is delayed. New departure time: "+ matchedFlightInfo[0].actual_departure +". Departure gate: "+ matchedFlightInfo[0].departure_gate+".": matchedFlightInfo[0].status === "Cancelled" ? "Your flight "+ matchedFlightInfo[0].flight_id + " has been cancelled." : matchedFlightInfo[0].status === "Departure Gate Is Changed" ? "Your flight " + matchedFlightInfo[0].flight_id +" is on time. But the departure gate is changed from "+ matchedFlightInfo[0].departure_gate +" to "+ matchedFlightInfo[0].changed_departure_gate+"." :  "Your flight " + matchedFlightInfo[0].flight_id +" is on time. But the arrival gate is changed from "+ matchedFlightInfo[0].arrival_gate +" to "+ matchedFlightInfo[0].changed_arrival_gate+"."
+                    }
+                    const options = {
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(flightInfo)
+                    }
+                    await fetch("http://localhost:8081/sendEmail", options);
+                }
+                   
+            }
         }
     }
 
@@ -89,8 +112,6 @@ const CheckFlightStatusComponent = () => {
                                     <option value="Select An Airline" disabled={true}>Select An Airline</option>
                                     <option value="Indigo">Indigo</option>
                                     <option value="Air India">Air India</option>
-                                    <option value="SpiceJet">SpiceJet</option>
-                                    <option value="Vistara">Vistara</option>
                                 </select>
                             </td>
                             <td>
@@ -105,7 +126,7 @@ const CheckFlightStatusComponent = () => {
                 {/* Created a container for buttons.*/}
                 <div className='btns'>
                     {/* Created a search button to find the status of the flight based upon the input.*/}
-                    <button className='searchFlightBtn' onClick={findFlightDetails}><img src={searchIcon} alt='Search' className='searchIcon' ></img>Search</button>
+                    <button className='searchFlightBtn' onClick={findFlightDetails}><img src={searchIcon} alt='Search' className='searchIcon' ></img>Show Flight Status</button>
                     {/* Created a reset button that set the input field value with default value.*/}
                     <button className='resetBtn' onClick={resetAllInputValues}>Reset</button>
                 </div>
@@ -114,7 +135,7 @@ const CheckFlightStatusComponent = () => {
             {flightData ? (
                 <div className='searchResultBox'>
                     <ShowSearchResult flightData={flightData} />
-                </div>) : allInputFieldsFilled?<div className='noFlight'><h1>Sorry!! We cannot find any flight with the mentioned details.</h1></div> : null}
+                </div>) : allInputFieldsFilled ? <div className='noFlight'><h1>Sorry!! We cannot find any flight with the mentioned details.</h1></div> : null}
         </div>
     )
 }

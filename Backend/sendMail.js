@@ -15,7 +15,6 @@ const transporter = nodemailer.createTransport({
 
 
 async function sendMail(to,subject,text){
-    console.log("1111 Send");
     const info = await transporter.sendMail({
         from: "rastogisakshi0213@gmail.com",
         to,

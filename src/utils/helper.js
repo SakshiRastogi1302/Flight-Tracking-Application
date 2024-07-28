@@ -1,4 +1,4 @@
-export const allInputFieldsSelected = (airlineName, flightNo, date) => {
+export const checkAllInputFieldsFilled = (airlineName, flightNo, date) => {
     if (airlineName === "Select An Airline" && flightNo === "" && date === "mm/dd/yy") {
         alert("Airline Name, Flight Number, Departure Date Is Required");
     }

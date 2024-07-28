@@ -1,8 +1,8 @@
-import { createTransport } from "nodemailer";
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 // Creating a transporter
-const transporter = createTransport({
+const transporter = nodemailer.createTransport({
     service : 'gmail',
     host: "smtp.gmail.com",
     port: 587,
@@ -15,6 +15,7 @@ const transporter = createTransport({
 
 
 async function sendMail(to,subject,text){
+    console.log("1111 Send");
     const info = await transporter.sendMail({
         from: "rastogisakshi0213@gmail.com",
         to,
@@ -23,4 +24,5 @@ async function sendMail(to,subject,text){
     })
 }
 
-export default {sendMail};
+module.exports = {sendMail}
+

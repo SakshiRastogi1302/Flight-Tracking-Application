@@ -1,7 +1,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
-const { sendMail } = require("./sendMail").default;
+const { sendMail } = require("./sendMail");
 
 
 const app = express();

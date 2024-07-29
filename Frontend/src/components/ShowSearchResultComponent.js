@@ -1,7 +1,7 @@
 import React from 'react'
-import '../css/ShowSearchResult.css'
+import '../css/ShowSearchResultComponent.css'
 
-const ShowSearchResult = ({ flightData }) => {
+const ShowSearchResultComponent = ({ flightData }) => {
   const departureTime = flightData.actual_departure === "null" ? flightData.scheduled_departure.split("T")[1].split("Z")[0] : flightData.actual_departure.split("T")[1].split("Z")[0];
   const arrivalTime = flightData.actual_arrival === "null" ? flightData.scheduled_arrival.split("T")[1].split("Z")[0] : flightData.actual_arrival.split("T")[1].split("Z")[0];
 
@@ -49,4 +49,4 @@ const ShowSearchResult = ({ flightData }) => {
   )
 }
 
-export default ShowSearchResult
+export default ShowSearchResultComponent

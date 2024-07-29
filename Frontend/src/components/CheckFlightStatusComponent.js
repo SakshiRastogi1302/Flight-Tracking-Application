@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import '../css/CheckFlightStatusComponent.css'
 import searchIcon from '../images/search-icon.png'
-import ShowSearchResult from './ShowSearchResult';
+import ShowSearchResultComponent from './ShowSearchResultComponent';
 import { checkAllInputFieldsFilled } from '../utils/helper';
 
 const CheckFlightStatusComponent = () => {
@@ -134,7 +134,7 @@ const CheckFlightStatusComponent = () => {
             {/* If flight data exists for selected input field showcase the flight information.*/}
             {flightData ? (
                 <div className='searchResultBox'>
-                    <ShowSearchResult flightData={flightData} />
+                    <ShowSearchResultComponent flightData={flightData} />
                 </div>) : allInputFieldsFilled ? <div className='noFlight'><h1>Sorry!! We cannot find any flight with the mentioned details.</h1></div> : null}
         </div>
     )

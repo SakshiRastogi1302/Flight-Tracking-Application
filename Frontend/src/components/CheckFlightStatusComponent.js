@@ -59,7 +59,7 @@ const CheckFlightStatusComponent = () => {
         if (allInputFieldsSelected) {
             const allFlightData = await (await fetch("http://localhost:8081/flight")).json();
             const matchedFlightInfo = allFlightData.filter((flightData) => {
-                const [departureDate, time] = flightData.actual_departure === "null" ? flightData.scheduled_departure.split("T") : flightData.actual_departure.split("T")
+                const departureDate = flightData.actual_departure === "null" ? flightData.scheduled_departure.split("T")[0] : flightData.actual_departure.split("T")[0];
                 return flightData.airline === airlineName && flightData.flight_id === flightNo && departureDate === date;
             })
             setFlightData(matchedFlightInfo[0]);
@@ -100,7 +100,7 @@ const CheckFlightStatusComponent = () => {
                     <thead>
                         <tr className='tableHeading'>
                             <th className='airlineNameHeading'>Airline Name</th>
-                            <th className='flightNoHeading'>Flight No. (e.g. 345)</th>
+                            <th className='flightNoHeading'>Flight No.</th>
                             <th className='selectDateHeading'>Departure Date</th>
                         </tr>
                     </thead>

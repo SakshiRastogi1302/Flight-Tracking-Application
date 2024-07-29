@@ -73,7 +73,9 @@
 
 **5. Send Email**
 
-    1. Whenever there is a change in the status of the flight like (status of the flight got changed from On Time to Delayed), then an email will be send to all the passengers who have booked this flight by sending a post request to (http://localhost:8081/sendEmail) along with JSON stringified body which consists of passenger email, subject and text. This post api calls the sendMail function defined in the backend.
+![Email](./Images/email.png)
+
+    1. Whenever there is a change in the status of the flight like (status of the flight got changed from On Time to Cancelled), then an email will be send to all the passengers who have booked this flight by sending a post request to (http://localhost:8081/sendEmail) along with JSON stringified body which consists of passenger email, subject and text. This post api calls the sendMail function defined in the backend.
 
 **How To Run Frontend Folder**
 
@@ -95,6 +97,8 @@
 
 **SERVER - (Using Express JS)**
 
+![Server](./Images/server.png)
+
     1. In the server.js file, I have created a server that is running on port # (8081). 
 
     2. I have created a connection between mysql database 
@@ -106,7 +110,6 @@
 
 
 **SEND EMAIL (Using NodeMailer)**
-
     1. I have created a nodemailer transporter using SMTP.
     2. Using transporter, call sendMail method which take message option object as input. Message option object consists of sender email, receiver email, subject, text.
 

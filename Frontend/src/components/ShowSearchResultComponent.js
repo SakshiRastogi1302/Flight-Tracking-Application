@@ -1,57 +1,81 @@
-import React from 'react'
-import '../css/ShowSearchResultComponent.css'
+import React from 'react';
+import '../css/ShowSearchResultComponent.css';
+
+// Helper function to format time from ISO string
+const formatTime = (timeString) => {
+  if (timeString === "null") return null;
+  return timeString.split("T")[1].split("Z")[0];
+};
 
 const ShowSearchResultComponent = ({ flightData }) => {
-  const departureTime = flightData.actual_departure === "null" ? flightData.scheduled_departure.split("T")[1].split("Z")[0] : flightData.actual_departure.split("T")[1].split("Z")[0];
-  const arrivalTime = flightData.actual_arrival === "null" ? flightData.scheduled_arrival.split("T")[1].split("Z")[0] : flightData.actual_arrival.split("T")[1].split("Z")[0];
+  const {
+    airline,
+    flight_id,
+    from_location,
+    to_location,
+    status,
+    departure_gate,
+    arrival_gate,
+    actual_departure,
+    actual_arrival,
+    scheduled_departure,
+    scheduled_arrival
+  } = flightData;
+
+  const departureTime = formatTime(actual_departure) || formatTime(scheduled_departure);
+  const arrivalTime = formatTime(actual_arrival) || formatTime(scheduled_arrival);
 
   return (
-    <div>
-      {/* Created a container */}
-      <div className='searchedFlightInfo'>
-        {/* Added a heading to the search box */}
-        <h1 className='checkFlightStatusHeading'>Searched Flight Status</h1>
-        {/* Displaying the flight name and number */}
-        <div className='flightNameAndNumber'>
-          <p className='name'>Airline Name :- {flightData.airline}</p>
-          <p className='flightNo'>Flight Number :- {flightData.flight_id}</p>
-        </div>
-        <div className='fromToLocation'>
-          <p>From :- {flightData.from_location}</p>
-          <p>To :- {flightData.to_location}</p>
-        </div>
-        {/* Displaying the status of flight */}
-        <div className='flightStatus'>
-          <p className='status'>Flight Status :- {flightData.status === "Departure Gate Is Changed" ? flightData.status + " to " + flightData.departure_gate : flightData.status}</p>
-        </div>
-        {/* Created a horizontal line */}
-        <hr className='horizontalLine'></hr>
+    <div className='searchedFlightInfo'>
+      <h1 className='checkFlightStatusHeading'>Searched Flight Status</h1>
 
-        {/* Created a location container to display the arrival and departure location of flight */}
-        <div className='location'>
-          {/* Departure Container */}
-          <div>
-            <h1 className='departure'>Departure Time</h1>
-            <p className='departureLocation'>{departureTime}</p>
-          </div>
-          <div>
-            <h1 className='departure'>Departure Gate</h1>
-            <p className='departureLocation'>{flightData.status === "Departure Gate Is Changed" ? flightData.departure_gate + " (New Departure Gate)" : flightData.departure_gate}</p>
-          </div>
+      <div className='flightNameAndNumber'>
+        <p className='name'>Airline Name: {airline}</p>
+        <p className='flightNo'>Flight Number: {flight_id}</p>
+      </div>
 
-          {/* Arrival Container */}
-          <div>
-            <h1 className='arrival'>Arrival Time</h1>
-            <p className='arrivalLocation'>{arrivalTime}</p>
-          </div>
-          <div>
-            <h1 className='arrival'>Arrival Gate</h1>
-            <p className='arrivalLocation'>{flightData.arrival_gate}</p>
-          </div>
+      <div className='fromToLocation'>
+        <p>From: {from_location}</p>
+        <p>To: {to_location}</p>
+      </div>
+
+      <div className='flightStatus'>
+        <p className='status'>
+          Flight Status :- {status === "Departure Gate Is Changed"
+            ? `${status} to ${departure_gate}`
+            : status}
+        </p>
+      </div>
+
+      <hr className='horizontalLine' />
+
+      <div className='location'>
+        <div className='departureContainer'>
+          <h1 className='departure'>Departure Time</h1>
+          <p className='departureLocation'>{departureTime}</p>
+        </div>
+
+        <div className='departureContainer'>
+          <h1 className='departure'>Departure Gate</h1>
+          <p className='departureLocation'>
+            {status === "Departure Gate Is Changed"
+              ? `${departure_gate} (New Departure Gate)`
+              : departure_gate}
+          </p>
+        </div>
+
+        <div className='arrivalContainer'>
+          <h1 className='arrival'>Arrival Time</h1>
+          <p className='arrivalLocation'>{arrivalTime}</p>
+        </div>
+
+        <div className='arrivalContainer'>
+          <h1 className='arrival'>Arrival Gate</h1>
+          <p className='arrivalLocation'>{arrival_gate}</p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ShowSearchResultComponent
+export default ShowSearchResultComponent;

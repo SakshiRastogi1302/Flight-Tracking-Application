@@ -34,7 +34,7 @@ const CheckFlightStatusComponent = () => {
     };
 
     const findFlightDetails = async () => {
-        const allInputFieldsSelected = checkAllInputFieldsFilled(airlineName, flightNo, date);
+        const allInputFieldsSelected = checkAllInputFieldsFilled(airlineName, flightNo, date, fromLocation, toLocation);
         setAllInputFieldsFilled(allInputFieldsSelected);
 
         if (allInputFieldsSelected) {

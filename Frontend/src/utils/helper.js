@@ -1,32 +1,31 @@
-export const checkAllInputFieldsFilled = (airlineName, flightNo, date) => {
-    if (airlineName === "Select An Airline" && flightNo === "" && date === "mm/dd/yy") {
-        alert("Airline Name, Flight Number, Departure Date Is Required");
+export const checkAllInputFieldsFilled = (airlineName, flightNo, date, fromLocation, toLocation) => {
+    // Array to store missing fields
+    const missingFields = [];
+
+    // Check if each field is filled
+    if (airlineName === "Select An Airline") {
+        missingFields.push("Airline Name");
     }
-    else if (airlineName === "Select An Airline" && date === "mm/dd/yy") {
-        alert("Airline Name & Departure Date Is Required");
+    if (flightNo === "") {
+        missingFields.push("Flight Number");
     }
-    else if (airlineName === "Select An Airline" && flightNo === "") {
-        alert("Airline Name & Flight Number Is Required");
+    if (date === "mm/dd/yy") {
+        missingFields.push("Departure Date");
     }
-    else if (airlineName === "Select An Airline") {
-        alert("Airline Name Is Required");
+    if (fromLocation === "") {
+        missingFields.push("From Location");
     }
-    else if (airlineName !== "Select An Airline") {
-        if (flightNo === "" && date === "mm/dd/yy") {
-            alert("Flight Number & Departure Date Is Required");
-        }
-        else if (flightNo === "") {
-            alert("Flight No Is Required");
-        }
-        else {
-            if (date === "mm/dd/yy") {
-                alert("Departure Date Is Required");
-            }
-            else {
-                return "true";
-            }
-        }
+    if (toLocation === "") {
+        missingFields.push("To Location");
     }
 
-    return "false";
-}
+    // Generate alert message based on missing fields
+    if (missingFields.length > 0) {
+        const message = `Please fill in the following fields: ${missingFields.join(", ")}.`;
+        alert(message);
+        return "false";
+    }
+
+    // All fields are filled
+    return "true";
+};

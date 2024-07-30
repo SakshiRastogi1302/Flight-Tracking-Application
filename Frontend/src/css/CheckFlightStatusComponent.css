@@ -1,30 +1,102 @@
-/* Added CSS for box container */
-.searchFlightBox {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Added CSS for check flight status container and searched flight status container */
-.flightStatusBox,.searchResultBox {
-    width: 50%;
+.search-result-box {
+    width: 96%;
     height: 35vh;
-    background-color: white;
+    background-color: #f9f9f9;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.searchResultBox {
+.search-result-box {
     margin-top: 2%;
 }
 
-.noFlight{
-    width: 50%;
+/* CheckFlightStatusComponent.css */
+
+.search-flight-box {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.flight-status-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-top: 5%;
+}
+
+.heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-heading {
+    background-color: #e0e0e0;
+}
+
+.table-heading th {
+    padding: 10px;
+    text-align: left;
+}
+
+.table-data td {
+    padding: 10px;
+}
+
+.airline-name-input,
+.flight-no-input,
+.date-input,
+.from-location-input,
+.to-location-input {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.search-flight-btn,
+.reset-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.search-flight-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.search-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.no-flight{
+    width: 96%;
     height: 35vh;
-    background-color: white;
+    background-color: #f9f9f9;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -34,106 +106,4 @@
     justify-content: center;
     align-items: center;
     margin-top: 2%;
-}
-
-/* Added CSS for heading */
-.heading {
-    font-size: 30px;
-    text-align: center;
-    font-weight: 700;
-    color:rgb(9, 221, 9);
-}
-
-/* Added CSS for table */
-table {
-    width: 50vw;
-    padding-left: 5%;
-}
-
-/* Added CSS for table headings */
-.tableHeading {
-    margin-top: 4%;
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Added CSS for table data  */
-.tableData {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Added CSS for selecting airline name from dropdown */
-.airlineNamesInput {
-    margin-top: 2%;
-    width: 10vw;
-    height: 5vh;
-    border-radius: 5px;
-}
-
-/* Added CSS for shifting flight no heading towards right */
-.flightNoHeading{
-    margin-left: 6%;
-}
-
-/* Added CSS for shifting date heading towards left */
-.selectDateHeading{
-    margin-right: 10%;
-}
-
-/* Added CSS for taking flight number as input */
-.flightNoInput {
-    margin-top: 2%;
-    margin-left: -10%;
-    width: 10vw;
-    height: 4vh;
-    padding-left: 2%;
-}
-
-/* Added CSS for taking departure date as input */
-.dateInput{
-    margin-top: 2%;
-    margin-left: -19%;
-    width: 10vw;
-    height: 4vh;
-    padding-left: 2%;
-    cursor: pointer;
-}
-
-.btns{
-    display: flex;
-    justify-content: space-between;
-}
-
-/* Added CSS for search button & reset button */
-.searchFlightBtn, .resetBtn{
-    border: none;
-    width: 30%;
-    font-size: 17px;
-    color: white;
-    background-color: rgb(8, 15, 108);
-    border-radius: 10px;
-    padding: 15px;
-    margin-top: 7%;
-    margin-left: 5%;
-    cursor: pointer;
-    display: flex;
-}
-
-.resetBtn{
-    width: 16%;
-    padding-left: 35px;
-    margin-right: 5%;
-}
-
-/* Added CSS for hovering over search button and reset button */
-.searchFlightBtn:hover, .resetBtn:hover{
-    opacity: 0.9;
-}
-
-/* Added CSS for searchIcon */
-.searchIcon{
-    width:20px;
-    margin-left: 14px;
-    margin-right: 5px;
 }

@@ -107,3 +107,14 @@ table {
     align-items: center;
     margin-top: 2%;
 }
+
+.back-btn {
+    background-color: green;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    font-size:15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 10px;
+}

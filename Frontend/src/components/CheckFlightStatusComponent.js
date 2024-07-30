@@ -3,6 +3,7 @@ import '../css/CheckFlightStatusComponent.css';
 import searchIcon from '../images/search-icon.png';
 import ShowSearchResultComponent from './ShowSearchResultComponent';
 import { checkAllInputFieldsFilled } from '../utils/helper';
+import {Link} from 'react-router-dom';
 
 const CheckFlightStatusComponent = () => {
     const [airlineName, setAirlineName] = useState("");
@@ -134,6 +135,7 @@ const CheckFlightStatusComponent = () => {
                         <img src={searchIcon} alt='Search' className='search-icon' /> Show Flight Status
                     </button>
                     <button className='reset-btn' onClick={resetAllInputValues}>Reset</button>
+                    <Link to="/"><button className='back-btn'>Back</button></Link>
                 </div>
             </div>
             {flightData ? (

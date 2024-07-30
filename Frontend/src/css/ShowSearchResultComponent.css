@@ -18,6 +18,15 @@
     margin-top: 4%;
 }
 
+.fromToLocation{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+    margin-left: -3%;
+    font-weight: bold;
+    color: blueviolet;
+}
+
 /* Added height to the flightStatus div container */
 .flightStatus{
     height: 5vh;
@@ -32,7 +41,7 @@
 .status{
     height: 10vh;
     margin-top: 2%;
-    margin-left: -12%;
+    margin-left: -10%;
     text-align: center;
     color: red;
     font-weight: 700;
@@ -45,7 +54,7 @@
 
 /* Added CSS for location container */
 .location {
-    margin-top: 30px;
+    margin-top: 20px;
     display: flex;
     justify-content: space-evenly;
 }

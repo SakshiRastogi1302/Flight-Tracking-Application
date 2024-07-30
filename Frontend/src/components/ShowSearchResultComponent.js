@@ -16,12 +16,17 @@ const ShowSearchResultComponent = ({ flightData }) => {
           <p className='name'>Airline Name :- {flightData.airline}</p>
           <p className='flightNo'>Flight Number :- {flightData.flight_id}</p>
         </div>
+        <div className='fromToLocation'>
+          <p>From :- {flightData.from_location}</p>
+          <p>To :- {flightData.to_location}</p>
+        </div>
         {/* Displaying the status of flight */}
         <div className='flightStatus'>
-          <p className='status'>Flight Status :- {flightData.status === "Departure Gate Is Changed" ? flightData.status + " from " + flightData.departure_gate + " to " + flightData.changed_departure_gate : flightData.status === "Arrival Gate Is Changed" ? flightData.status + " from " + flightData.arrival_gate + " to " + flightData.changed_arrival_gate : flightData.status}</p>
+          <p className='status'>Flight Status :- {flightData.status === "Departure Gate Is Changed" ? flightData.status + " to " + flightData.departure_gate : flightData.status}</p>
         </div>
         {/* Created a horizontal line */}
         <hr className='horizontalLine'></hr>
+
         {/* Created a location container to display the arrival and departure location of flight */}
         <div className='location'>
           {/* Departure Container */}
@@ -31,7 +36,7 @@ const ShowSearchResultComponent = ({ flightData }) => {
           </div>
           <div>
             <h1 className='departure'>Departure Gate</h1>
-            <p className='departureLocation'>{flightData.status === "Departure Gate Is Changed" ? flightData.changed_departure_gate + " (New Departure Gate)" : flightData.departure_gate}</p>
+            <p className='departureLocation'>{flightData.status === "Departure Gate Is Changed" ? flightData.departure_gate + " (New Departure Gate)" : flightData.departure_gate}</p>
           </div>
 
           {/* Arrival Container */}
@@ -41,7 +46,7 @@ const ShowSearchResultComponent = ({ flightData }) => {
           </div>
           <div>
             <h1 className='arrival'>Arrival Gate</h1>
-            <p className='arrivalLocation'>{flightData.status === "Arrival Gate Is Changed" ? flightData.changed_arrival_gate + " (New Arrival Gate)" : flightData.arrival_gate}</p>
+            <p className='arrivalLocation'>{flightData.arrival_gate}</p>
           </div>
         </div>
       </div>

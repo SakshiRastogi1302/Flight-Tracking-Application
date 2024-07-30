@@ -8,15 +8,15 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-      user: "rastogisakshi0213@gmail.com",
-      pass: "kylcixmpspxidiba"
+      user: process.env.DB_GMAIL_USER,
+      pass: process.env.DB_GMAIL_PASSWORD
     },
 });
 
 
 async function sendMail(to,subject,text){
     const info = await transporter.sendMail({
-        from: "rastogisakshi0213@gmail.com",
+        from: process.env.DB_GMAIL_USER,
         to,
         subject,
         text

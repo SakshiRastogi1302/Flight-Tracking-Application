@@ -39,7 +39,7 @@ const CheckFlightStatusComponent = () => {
 
         if (allInputFieldsSelected) {
             try {
-                const response = await fetch(`http://localhost:8081/flight?param1=${flightNo}&param2=${fromLocation}&param3=${toLocation}`);
+                const response = await fetch(`http://localhost:8081/flight?param1=${flightNo}&param2=${date}&param3=${fromLocation}&param4=${toLocation}`);
                 const filteredFlightData = await response.json();
                 setFlightData(filteredFlightData[0]);
 
@@ -74,7 +74,7 @@ const CheckFlightStatusComponent = () => {
             case "Cancelled":
                 return "Flight Cancelled";
             default:
-                return "Flight Status Update";
+                return "Flight Departure Gate Is Changed";
         }
     };
 

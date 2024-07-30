@@ -43,52 +43,9 @@ const CheckFlightStatusComponent = () => {
                 const response = await fetch(`http://localhost:8081/flight?param1=${flightNo}&param2=${date}&param3=${fromLocation}&param4=${toLocation}`);
                 const filteredFlightData = await response.json();
                 setFlightData(filteredFlightData[0]);
-
-                if (filteredFlightData[0]) {
-                    const emailList = JSON.parse(filteredFlightData[0].passengers_list);
-                    for (const passenger in emailList) {
-                        const flightInfo = {
-                            email: emailList[passenger].emailId,
-                            subject: getEmailSubject(filteredFlightData[0].status),
-                            text: getEmailBody(filteredFlightData[0])
-                        };
-
-                        await fetch("http://localhost:8081/sendEmail", {
-                            method: "POST",
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(flightInfo)
-                        });
-                    }
-                }
             } catch (error) {
                 console.error("Error fetching flight details:", error);
             }
-        }
-    };
-
-    const getEmailSubject = (status) => {
-        switch (status) {
-            case "On Time":
-                return "Flight On Time";
-            case "Delayed":
-                return "Flight Delayed";
-            case "Cancelled":
-                return "Flight Cancelled";
-            default:
-                return "Flight Departure Gate Is Changed";
-        }
-    };
-
-    const getEmailBody = (flight) => {
-        switch (flight.status) {
-            case "On Time":
-                return `Your flight ${flight.flight_id} is on time. Departure gate: ${flight.departure_gate}.`;
-            case "Delayed":
-                return `Your flight ${flight.flight_id} is delayed. New departure time: ${flight.actual_departure}. Departure gate: ${flight.departure_gate}.`;
-            case "Cancelled":
-                return `Your flight ${flight.flight_id} has been cancelled.`;
-            default:
-                return `Your flight ${flight.flight_id} is on time. But the departure gate is changed to ${flight.departure_gate}.`;
         }
     };
 

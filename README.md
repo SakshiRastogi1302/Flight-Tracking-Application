@@ -124,6 +124,10 @@
 
 ## DATABASE
 
+![Flight Table](./Images/flight%20table.png)
+![Updated Flight Information Table](./Images/updated_flight_information_table.png)
+![Updated Flight Information Trigger](./Images/updated_flight_information_trigger.png)
+
 1. I have created the database (flight_tracking_application_database) using MySQL (phpMyAdmin). The database consists of two tables (flight and updated_flight_information). The flight table contains the information about the flights and updated_flight_information table stores those flight information whose status has been updated. I have created a trigger (Updated Flight Information) in flight table that gets invoked or triggered automatically after an UPDATE operation gets successfully executed on the flight table. 
 
 

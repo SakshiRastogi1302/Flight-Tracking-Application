@@ -1,0 +1,67 @@
+.homepage{
+    height:80vh;
+    width: 100vw;
+    display: flex;
+}
+
+.main-heading{
+    position: absolute;
+    margin-top: 16%;
+    margin-left: 60%;
+}
+
+.homepage-heading{
+    font-size: 50px;
+    font-weight: 600;
+    margin-left: 30px;
+    background: linear-gradient(to left, blue, indigo, blue, violet, indigo, blue);
+    background-clip: text;
+    color:transparent;
+}
+
+.tagline{
+    font-size: 20px;
+    font-style: italic;
+}
+
+.button{
+    position: absolute;
+    margin-top: 24%;
+    margin-left: 69%;
+}
+
+.book-flight{
+    background-color: rgb(16, 175, 214);
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.book-flight:hover{
+    background-color: rgb(18, 130, 158);
+}
+
+.check-status{
+    background-color: rgb(114, 9, 114);
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.check-status:hover{
+    background-color: rgb(82, 5, 82);
+}
+
+.background-image{
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../images/background-image.jpg');
+    background-size: cover;
+}

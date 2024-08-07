@@ -14,7 +14,6 @@
 /* CheckFlightStatusComponent.css */
 
 .search-flight-box {
-    padding: 20px;
     max-width: 800px;
     margin: auto;
 }
@@ -24,7 +23,6 @@
     padding: 20px;
     border-radius: 8px;
     background-color: #f9f9f9;
-    margin-top: 5%;
 }
 
 .heading {

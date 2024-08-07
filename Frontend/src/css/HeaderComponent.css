@@ -1,0 +1,53 @@
+.header{
+    color: black;
+    position: absolute;
+    display: flex;
+}
+
+.airline-logo{
+    height: 70px;
+    margin-top: 2px;
+    margin-right: 550px;
+}
+
+.navItems{
+    display: flex;
+    padding: 16px;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+li{
+    list-style: none;
+    margin-right: 35px;
+    color: rgb(7, 7, 133);
+    font-weight: 500;
+}
+
+i{
+    font-size: 15px;
+    color: rgb(61, 7, 99);
+}
+
+.fa-lock{
+    color: orangered;
+}
+
+.link{
+    text-decoration: none;
+}
+
+.signInBtn{
+    width: 80px;
+    background-color: rgb(235, 206, 21);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: -5px;
+}
+
+.signInBtnText{
+    color: orangered;
+    font-size: 15px;
+    font-weight: 600;
+}

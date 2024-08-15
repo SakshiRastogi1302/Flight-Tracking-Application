@@ -1,19 +1,23 @@
+/* CSS FOR HOMEPAGE COMPONENT */
+
 .homepage{
     height:80vh;
     width: 100vw;
     display: flex;
 }
 
+/* CSS for main heading */
 .main-heading{
     position: absolute;
-    margin-top: 16%;
+    margin-top: 18%;
     margin-left: 60%;
 }
 
+/* CSS for homepage heading */
 .homepage-heading{
     font-size: 50px;
     font-weight: 600;
-    margin-left: 30px;
+    margin-left: 18px;
     background: linear-gradient(to left, blue, indigo, blue, violet, indigo, blue);
     background-clip: text;
     color:transparent;
@@ -24,12 +28,14 @@
     font-style: italic;
 }
 
+/* CSS for buttons */
 .button{
     position: absolute;
-    margin-top: 24%;
-    margin-left: 69%;
+    margin-top: 25%;
+    margin-left: 68%;
 }
 
+/* CSS for book your flight button*/
 .book-flight{
     background-color: rgb(16, 175, 214);
     color: white;
@@ -41,10 +47,12 @@
     cursor: pointer;
 }
 
+/* CSS for book your flight button on hovering over it */
 .book-flight:hover{
     background-color: rgb(18, 130, 158);
 }
 
+/* CSS for check flight status button */
 .check-status{
     background-color: rgb(114, 9, 114);
     color: white;
@@ -55,10 +63,12 @@
     cursor: pointer;
 }
 
+/* CSS for check flight status button on hovering over it */
 .check-status:hover{
     background-color: rgb(82, 5, 82);
 }
 
+/* CSS for background image */
 .background-image{
     height: 100vh;
     width: 100vw;

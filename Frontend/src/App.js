@@ -58,7 +58,7 @@ function App() {
       
     ])
   return (
-    <div className="app">
+    <div>
       {/* <RouterProvider router={appRouter}> is used to provide the routing configuration defined by appRouter to the React application, enabling navigation and route management within the app based on the specified router instance. */}
       <RouterProvider router={appRouter}></RouterProvider>
     </div>

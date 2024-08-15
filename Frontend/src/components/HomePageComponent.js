@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../css/HomePageComponent.css'
-import backgroundImage from '../images/background-image.jpg'
 
 
 const HomePageComponent = () => {

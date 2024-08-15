@@ -1,22 +1,28 @@
+/* CSS FOR HEADER COMPONENT */
+
 .header{
-    color: black;
+    width: 100%;
     position: absolute;
     display: flex;
 }
 
+/* CSS for airline logo */
 .airline-logo{
     height: 70px;
     margin-top: 2px;
     margin-right: 550px;
 }
 
+/* CSS for navbar */
 .navItems{
     display: flex;
     padding: 16px;
     margin-top: 10px;
+    margin-left: 8%;
     justify-content: flex-end;
 }
 
+/* CSS for list items */
 li{
     list-style: none;
     margin-right: 35px;
@@ -24,30 +30,34 @@ li{
     font-weight: 500;
 }
 
+/* CSS for fontawesome icons */
 i{
     font-size: 15px;
     color: rgb(61, 7, 99);
 }
 
+/* CSS for lock fontawesome icon */
 .fa-lock{
-    color: orangered;
+    color: white;
 }
 
+/* CSS for link that helps us in moving from one web page to another web page*/
 .link{
     text-decoration: none;
 }
 
+/* CSS for sign in button */
 .signInBtn{
-    width: 80px;
-    background-color: rgb(235, 206, 21);
-    color: white;
+    width: 6%;
+    height: 35px;
+    background-color: rgb(61, 7, 99);
     border: none;
     border-radius: 5px;
-    margin-top: -5px;
+    margin-top: 20px;
 }
 
+/* CSS for sign in button text */
 .signInBtnText{
-    color: orangered;
+    color: white;
     font-size: 15px;
-    font-weight: 600;
 }

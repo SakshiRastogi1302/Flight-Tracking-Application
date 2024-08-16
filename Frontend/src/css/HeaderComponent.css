@@ -4,6 +4,8 @@
     width: 100%;
     position: absolute;
     display: flex;
+    position: fixed;
+    background-color: rgb(207, 236, 240);
 }
 
 /* CSS for airline logo */

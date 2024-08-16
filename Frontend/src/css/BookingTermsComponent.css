@@ -1,0 +1,36 @@
+.booking-terms-box {
+    width: 100vw;
+    height: 100%;
+    background-color: rgb(196, 217, 231);
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-terms-condition-image {
+    margin-top: 11%;
+    height: 500px;
+    position: fixed;
+}
+
+.terms-and-conditions-container{
+    margin-top: 8%;
+    margin-left: 50%;    
+}
+
+.terms-and-conditons {
+    width: 90%;
+    border: 4px solid rgb(94, 170, 237);
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.terms-and-conditons p{
+    margin: 5px;
+    text-align: justify;
+}
+
+.terms-and-conditons-heading{
+    color: rgb(7, 7, 133);
+    text-align: center;
+    margin: 10px;
+}

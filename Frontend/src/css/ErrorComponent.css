@@ -1,0 +1,61 @@
+.error-section{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(196, 217, 231);
+    display: flex;
+    justify-content: space-evenly
+}
+
+.error-logo{
+    height: 80%;
+    margin-top: 7%;
+    margin-left: -85px;
+}
+
+.error-content{
+    width: 130%;
+    height: 20%;
+    margin-top: 15%;
+}
+
+.error-heading{
+    font-size: 4rem;
+    color: rgb(4, 42, 69);
+    text-align: center;
+}
+
+.error-text{
+    font-size: 40px;
+    margin-left: 26%;
+    margin-bottom: 5px;
+    color: rgb(140, 17, 109);
+    font-weight: 600;
+}
+
+.error-solution{
+    font-size: 20px;
+    margin-left: 25%;
+    color: rgb(4, 42, 69);
+    font-weight: 500;
+}
+
+.go-to-home-btn{
+    background-color: rgb(140, 17, 109);
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 43%;
+    margin-top: 2%;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.go-to-home-btn:hover{
+    background-color: rgb(192, 31, 151);
+}
+
+.house-icon{
+    color: white;
+    padding-right: 4px;
+}

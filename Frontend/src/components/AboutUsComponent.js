@@ -24,7 +24,6 @@ const AboutUsComponent = () => {
           <p>Our mission is simple: to connect you to the world with the highest level of convenience, comfort, and reliability. We believe that travel should be more than just a destination; it should be an experience. From booking your flight to arriving at your destination, we strive to make every step of your journey as smooth as possible.</p>
         </div>
         <div className='what-sets-us-apart'>
-          {/* <h1 className='what-sets-us-apart-heading'>What Sets Us Apart</h1> */}
           <img src={whatSetsUsApart} alt="What Set's Us Apart" className='what-sets-us-apart-logo'></img>
           <p>1. <b>Intuitive Booking System</b> : Our advanced platform allows you to search, check flight status and book flights effortlessly. Whether you’re planning a quick business trip or a leisurely vacation, our system ensures you find the best options tailored to your needs.</p>
           <br></br>

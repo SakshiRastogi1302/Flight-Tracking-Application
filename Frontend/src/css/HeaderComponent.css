@@ -48,6 +48,10 @@ i{
     text-decoration: none;
 }
 
+.fa-bell{
+    font-size: 20px;
+}
+
 /* CSS for sign in button */
 .signInBtn{
     width: 6%;

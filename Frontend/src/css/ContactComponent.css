@@ -1,0 +1,58 @@
+.contact-form-container{    
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(196, 217, 231);
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.contact-us-logo{
+    width: 40%;
+    height: 80%;
+    margin-top: 9%;
+}
+
+.contact-form{
+    width: 30%;
+    height: 60%;
+    background-color: rgb(139, 192, 239);
+    border: 3px solid rgb(7, 7, 133);
+    border-radius: 10px;
+    margin-top: 9%;
+    margin-left: 10%;
+    padding: 40px;
+}
+
+.fullName, .emailAddress, .phoneNumber, .textMessage{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-left: 10%;
+}
+
+.full-name-heading, .email-address-heading, .phone-number-heading, .text-message-heading{
+    font-weight: 500;
+    color:rgb(7, 7, 133);
+    margin-bottom: 1%;
+}
+
+.full-name-text, .email-address-text, .phone-number-text, .text-message{
+    width: 80%;
+    padding: 10px;
+}
+
+.submit-form-button{
+    width: 20%;
+    background-color: rgb(7, 7, 133);
+    color: white;
+    padding:10px;
+    margin-left: 35%;
+    margin-top: 5%;
+    border-radius: 10px;
+    border: none;
+    cursor:pointer;
+}
+
+.submit-form-button:hover{
+    background-color: rgb(47, 47, 174);
+}

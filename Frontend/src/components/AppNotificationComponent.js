@@ -1,8 +1,11 @@
 import React from 'react'
+import '../css/AppNotificationComponent.css'
 
 const AppNotificationComponent = () => {
   return (
-    <div>AppNotificationComponent</div>
+    <div className='app-notification-section'>
+      AppNotificationComponent
+    </div>
   )
 }
 

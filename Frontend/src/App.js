@@ -9,6 +9,7 @@ import BookingTermsComponent from "./components/BookingTermsComponent";
 import ContactComponent from "./components/ContactComponent";
 import CheckFlightStatusComponent from './components/CheckFlightStatusComponent';
 import AppNotificationComponent from "./components/AppNotificationComponent";
+import LoginComponent from "./components/LoginComponent";
 
 
 function App() {
@@ -56,6 +57,11 @@ function App() {
         {
           path:"/appNotifications",
           element:<AppNotificationComponent />,
+          errorElement:<ErrorComponent />
+        },
+        {
+          path:"/login",
+          element:<LoginComponent />,
           errorElement:<ErrorComponent />
         }
       ],

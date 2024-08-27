@@ -26,6 +26,7 @@ function checkForUpdates() {
       if (err) throw err;
       if (results.length > 0) {
           // Notify all WebSocket clients
+          console.log("All clients");
           wss.clients.forEach(client => {
               if (client.readyState === WebSocket.OPEN) {
                   client.send(JSON.stringify(results));
@@ -44,10 +45,11 @@ setInterval(checkForUpdates, 1000);
 
 // WebSocket connection handling
 wss.on('connection', ws => {
-  ws.on('message', message => {
-      console.log('Received:', message);
-      // Handle incoming messages if necessary
-  });
+    console.log("CONNECTION ESTABLISHED");
+//     ws.on('message', message => {
+//       console.log('Received:', message);
+//       // Handle incoming messages if necessary
+//   });
 });
 
 app.get('/', (req, res) => {

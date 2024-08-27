@@ -52,18 +52,27 @@ i{
     font-size: 20px;
 }
 
-/* CSS for sign in button */
-.signInBtn{
+.button-link{
     width: 6%;
     height: 35px;
     background-color: rgb(61, 7, 99);
-    border: none;
     border-radius: 5px;
     margin-top: 20px;
+    cursor: pointer;
+}
+
+/* CSS for sign in button */
+.signInBtn{
+    background-color: transparent;
+    color:white;
+    border:none;
+    margin: 10px;
+    cursor: pointer;
 }
 
 /* CSS for sign in button text */
 .signInBtnText{
     color: white;
-    font-size: 15px;
+    font-size: 14px;
+    padding-left: 4px;
 }
